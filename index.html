@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Math Quest is a fun word-problem game with 3 levels, daily challenges, hints, and 100 missions." />
+    <title>Math Quest | Levels, Daily Challenge & Missions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero panel">
+        <h1>🧠 Math Quest</h1>
+        <p>Fun word problems with Easy, Medium, and Hard levels — plus daily challenges and 100 missions!</p>
+      </header>
+
+      <section class="panel score-panel">
+        <p><strong>Total Points:</strong> <span id="score">0</span></p>
+        <p class="small">✅ +5 points for each completed question. 💡 Hints cost 10 points.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Level Game (20 Questions Per Level)</h2>
+        <div class="level-buttons" role="group" aria-label="Difficulty levels">
+          <button class="level-btn active" data-level="easy">Easy</button>
+          <button class="level-btn" data-level="medium">Medium</button>
+          <button class="level-btn" data-level="hard">Hard</button>
+        </div>
+
+        <div class="meta-row">
+          <p><strong>Level:</strong> <span id="current-level">Easy</span></p>
+          <p><strong>Question:</strong> <span id="level-index">1</span>/20</p>
+        </div>
+
+        <article class="problem-card">
+          <h3>Word Problem</h3>
+          <p id="level-question"></p>
+          <p id="level-hint" class="hint"></p>
+        </article>
+
+        <form id="level-form" class="answer-form" autocomplete="off">
+          <label for="level-answer">Your answer</label>
+          <input id="level-answer" type="number" step="any" required />
+          <div class="actions">
+            <button type="button" id="prev-question">⬅ Previous</button>
+            <button type="submit">Submit</button>
+            <button type="button" id="next-question">Next ➡</button>
+            <button type="button" id="hint-btn">Use Hint (-10)</button>
+          </div>
+        </form>
+        <p id="level-feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <h2>📅 Daily Challenge</h2>
+        <label for="challenge-date">Pick a date</label>
+        <input id="challenge-date" type="date" />
+        <article class="problem-card">
+          <p id="daily-question">Choose a date to load your challenge.</p>
+          <p id="daily-hint" class="hint"></p>
+        </article>
+        <form id="daily-form" class="answer-form" autocomplete="off">
+          <input id="daily-answer" type="number" step="any" placeholder="Daily answer" required />
+          <div class="actions">
+            <button type="submit">Submit Daily Challenge</button>
+            <button type="button" id="daily-hint-btn">Use Hint (-10)</button>
+          </div>
+        </form>
+        <p id="daily-feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <h2>🎯 Missions (100 Unique Missions)</h2>
+        <div class="meta-row">
+          <p><strong>Mission:</strong> <span id="mission-number">1</span>/100</p>
+          <p><strong>Completed:</strong> <span id="mission-completed">0</span>/100</p>
+        </div>
+        <article class="problem-card">
+          <p id="mission-question"></p>
+          <p id="mission-hint" class="hint"></p>
+        </article>
+        <form id="mission-form" class="answer-form" autocomplete="off">
+          <input id="mission-answer" type="number" step="any" placeholder="Mission answer" required />
+          <div class="actions">
+            <button type="button" id="prev-mission">⬅ Previous Mission</button>
+            <button type="submit">Submit Mission</button>
+            <button type="button" id="next-mission">Next Mission ➡</button>
+            <button type="button" id="mission-hint-btn">Use Hint (-10)</button>
+          </div>
+        </form>
+        <p id="mission-feedback" class="feedback" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
